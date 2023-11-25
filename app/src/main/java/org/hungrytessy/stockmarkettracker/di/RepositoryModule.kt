@@ -7,7 +7,9 @@ import dagger.hilt.components.SingletonComponent
 import org.hungrytessy.stockmarkettracker.data.StockRepositoryImpl
 import org.hungrytessy.stockmarkettracker.data.csv.CSVParser
 import org.hungrytessy.stockmarkettracker.data.csv.CompanyListingsParser
+import org.hungrytessy.stockmarkettracker.data.csv.IntradayInfoParser
 import org.hungrytessy.stockmarkettracker.domain.model.CompanyListing
+import org.hungrytessy.stockmarkettracker.domain.model.IntradayInfo
 import org.hungrytessy.stockmarkettracker.domain.repository.StockRepository
 import javax.inject.Singleton
 
@@ -26,4 +28,10 @@ abstract class RepositoryModule {
     abstract fun bindStockRepository(
         stockRepositoryImpl: StockRepositoryImpl
     ): StockRepository
+
+    @Binds
+    @Singleton
+    abstract fun bindIntradayInfoParser(
+        intradayInfoParser: IntradayInfoParser
+    ): CSVParser<IntradayInfo>
 }
