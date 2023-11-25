@@ -7,6 +7,9 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import com.ramcosta.composedestinations.DestinationsNavHost
+import dagger.hilt.android.AndroidEntryPoint
+import org.hungrytessy.stockmarkettracker.presentation.company_listings.NavGraphs
 import org.hungrytessy.stockmarkettracker.ui.theme.StockMarketAppTheme
 
 /**
@@ -19,6 +22,7 @@ import org.hungrytessy.stockmarkettracker.ui.theme.StockMarketAppTheme
  * presentation : show something to the user. contains ui, screens, states, viewModels
  *
  */
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,7 +32,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    //setup navigation library
+                    DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
         }
