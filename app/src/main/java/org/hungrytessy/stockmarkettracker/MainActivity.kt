@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    //setup navigation library
+                    // one-line setup navigation library
                     DestinationsNavHost(navGraph = NavGraphs.root)
                 }
             }
