@@ -9,6 +9,7 @@ import org.hungrytessy.stockmarkettracker.domain.model.CompanyListing
 import org.hungrytessy.stockmarkettracker.domain.model.IntradayInfo
 import java.io.InputStream
 import java.io.InputStreamReader
+import java.time.LocalDate
 import java.time.LocalDateTime
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -38,7 +39,7 @@ class IntradayInfoParser @Inject constructor(): CSVParser<IntradayInfo>  {
                     dto.toIntradayInfo()
             }
                 .filter {
-                    it.timestamp.dayOfMonth == LocalDateTime.now().minusDays(1).dayOfMonth
+                    it.timestamp.dayOfMonth == LocalDate.now().minusDays(1).dayOfMonth
                 }
                 .sortedBy {
                     it.timestamp.hour

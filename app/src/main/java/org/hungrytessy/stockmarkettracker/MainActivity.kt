@@ -9,7 +9,7 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
-import org.hungrytessy.stockmarkettracker.presentation.company_listings.NavGraphs
+import org.hungrytessy.stockmarkettracker.presentation.NavGraphs
 import org.hungrytessy.stockmarkettracker.ui.theme.StockMarketAppTheme
 
 /**
