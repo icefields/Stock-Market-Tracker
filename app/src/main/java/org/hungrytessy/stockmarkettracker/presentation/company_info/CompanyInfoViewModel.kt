@@ -63,7 +63,6 @@ class CompanyInfoViewModel @Inject constructor(
                     )
                 }
                 is Resource.Loading -> {}
-
             }
         }
     }

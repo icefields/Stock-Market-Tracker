@@ -88,6 +88,4 @@ class StockRepositoryImpl @Inject constructor(
     } catch (e: HttpException) {
         Resource.Error(message = "cannot load data", exception = e)
     }
-
-
 }
