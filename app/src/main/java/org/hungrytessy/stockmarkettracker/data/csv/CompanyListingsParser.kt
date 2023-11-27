@@ -28,15 +28,16 @@ class CompanyListingsParser @Inject constructor(): CSVParser<CompanyListing>  {
                 .readAll()
                 .drop(1)
                 .mapNotNull { line ->
-                val symbol = line.getOrNull(0)
-                val name = line.getOrNull(1)
-                val exchange = line.getOrNull(2)
-                CompanyListing(
-                    name = name ?: return@mapNotNull null,
-                    symbol = symbol ?: return@mapNotNull null,
-                    exchange = exchange ?: return@mapNotNull null
-                )
-            }.also { csvReader.close() }
+                    val symbol = line.getOrNull(0)
+                    val name = line.getOrNull(1)
+                    val exchange = line.getOrNull(2)
+                    CompanyListing(
+                        name = name ?: return@mapNotNull null,
+                        symbol = symbol ?: return@mapNotNull null,
+                        exchange = exchange ?: return@mapNotNull null
+                    )
+                }
+                .also { csvReader.close() }
         }
     }
 }
