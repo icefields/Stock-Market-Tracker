@@ -1,5 +1,6 @@
 package org.hungrytessy.stockmarkettracker.data
 
+import android.util.Log
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import okio.IOException
@@ -45,6 +46,7 @@ class StockRepositoryImpl @Inject constructor(
 
         val remoteListings = try {
             val response = api.getListings()
+            Log.d("aaaa", response.toString())
             companyListingParser.parse(response.byteStream())
         } catch (e: IOException) {
             emit(Resource.Error(message = "cannot load data", exception = e))
@@ -55,7 +57,6 @@ class StockRepositoryImpl @Inject constructor(
         }
 
         remoteListings?.let { listings ->
-
             dao.clearCompanyListings()
             dao.insertCompanyListings(
                 listings.map { it.toCompanyListingEntity() }

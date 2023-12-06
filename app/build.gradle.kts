@@ -108,7 +108,7 @@ dependencies {
     ksp("io.github.raamcosta.compose-destinations:ksp:1.1.2-beta")
 
     // Coil
-    implementation("io.coil-kt:coil-compose:1.4.0")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 
     //Dagger - Hilt
     implementation("com.google.dagger:hilt-android:2.48")
@@ -124,9 +124,9 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
 
     // Room
-    implementation("androidx.room:room-runtime:2.6.0")
-    ksp("androidx.room:room-compiler:2.6.0")
+    implementation("androidx.room:room-runtime:2.6.1")
+    ksp("androidx.room:room-compiler:2.6.1")
 
     // Kotlin Extensions and Coroutines support for Room
-    implementation("androidx.room:room-ktx:2.6.0")
+    implementation("androidx.room:room-ktx:2.6.1")
 }

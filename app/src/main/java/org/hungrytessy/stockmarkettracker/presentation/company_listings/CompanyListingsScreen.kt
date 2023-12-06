@@ -33,9 +33,7 @@ fun CompanyListingsScreen(
         OutlinedTextField(
             value = state.searchQuery,
             onValueChange = {
-                viewModel.onEvent(
-                    CompanyListingsEvent.OnSearchQueryChange(it)
-                )
+                viewModel.onEvent(CompanyListingsEvent.OnSearchQueryChange(it))
             },
             modifier = Modifier
                 .padding(16.dp)
