@@ -1,4 +1,4 @@
-val composeVersion = rootProject.extra.get("compose_version") as String
+import java.util.Properties
 
 plugins {
     id("com.android.application")
@@ -8,6 +8,10 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
 }
+
+val composeVersion = rootProject.extra.get("compose_version") as String
+val localProperties = Properties()
+localProperties.load(project.rootProject.file("local.properties").inputStream())
 
 kotlin {
     sourceSets {
@@ -35,6 +39,8 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        buildConfigField("String", "API_KEY", "\"${localProperties.getProperty("API_KEY")}\"")
     }
 
     buildTypes {
@@ -59,6 +65,7 @@ android {
 
     buildFeatures {
         compose = true
+        buildConfig = true
     }
 
     composeOptions {
@@ -120,8 +127,8 @@ dependencies {
     // Retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-moshi:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.3")
-    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.3")
+    implementation("com.squareup.okhttp3:okhttp:5.0.0-alpha.9")
+    implementation("com.squareup.okhttp3:logging-interceptor:5.0.0-alpha.9")
 
     // Room
     implementation("androidx.room:room-runtime:2.6.1")

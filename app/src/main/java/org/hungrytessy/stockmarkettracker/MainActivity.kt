@@ -11,6 +11,8 @@ import com.ramcosta.composedestinations.DestinationsNavHost
 import dagger.hilt.android.AndroidEntryPoint
 import org.hungrytessy.stockmarkettracker.presentation.NavGraphs
 import org.hungrytessy.stockmarkettracker.ui.theme.StockMarketAppTheme
+import java.io.File
+import java.util.Properties
 
 /**
  * In Clean Architecture we organize the packages in 3 layers:

@@ -1,6 +1,7 @@
 package org.hungrytessy.stockmarkettracker.data.remote
 
 import okhttp3.ResponseBody
+import org.hungrytessy.stockmarkettracker.BuildConfig
 import org.hungrytessy.stockmarkettracker.data.remote.dto.CompanyInfoDto
 import retrofit2.http.GET
 import retrofit2.http.Query
@@ -22,7 +23,7 @@ interface StockApi {
     ): CompanyInfoDto
 
     companion object {
-        const val API_KEY = "Q63Y9NX3TUF587NF"
+        const val API_KEY = BuildConfig.API_KEY
         const val BASE_URL = "https://alphavantage.co/"
     }
 }
